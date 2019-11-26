@@ -28,6 +28,7 @@ module DatacenterLookup
       low = 0
       while high >= low do
         probe = ((high+low)/2).floor.to_i
+        return nil unless @starts[probe]
         if @starts[probe] > ip
           high = probe - 1
         elsif @ends[probe] < ip
